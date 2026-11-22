@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
 <!-- Replace these social preview URLs when the new site is published -->
 <meta property="og:title" content="Double Dragon Tattoo">
 <meta property="og:description" content="Custom and flash tattooing in Omaha.">
@@ -847,6 +849,117 @@ body.nav-live .hero-text {
     justify-self: center;
   }
 }
+   
+/* DOUBLE DRAGON - NEW HERO TEXT */
+
+.hero-text {
+  left: 50%;
+  right: auto;
+  bottom: 13%;
+  width: min(90%, 1050px);
+  max-width: none;
+  text-align: center;
+  transform: translate(-50%, 14px);
+}
+
+body.nav-live .hero-text {
+  transform: translate(-50%, 0);
+}
+
+.hero-text .hero-tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin: 0 0 34px;
+  color: #f2cc77;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.4rem, 3.1vw, 3rem);
+  font-weight: 600;
+  letter-spacing: .16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hero-text .hero-tagline span {
+  display: inline-block;
+}
+
+.hero-text .hero-tagline .tagline-line {
+  display: block;
+  flex: 1 1 60px;
+  max-width: 110px;
+  height: 2px;
+  background: #bd3028;
+}
+
+.walkins-badge {
+  display: inline-block;
+  padding: 15px 35px;
+  border: 2px solid #bd3028;
+  color: #f2d96b;
+  background: rgba(0,0,0,.38);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.25rem, 2.4vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: .2em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .hero-text {
+    bottom: 12%;
+    width: 92%;
+  }
+
+  .hero-text .hero-tagline {
+    gap: 12px;
+    font-size: clamp(1.2rem, 3.5vw, 2rem);
+    letter-spacing: .1em;
+  }
+
+  .hero-text .hero-tagline .tagline-line {
+    max-width: 50px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-text {
+    left: 50%;
+    right: auto;
+    bottom: 12%;
+    width: 94%;
+    max-width: none;
+    text-align: center;
+    transform: translate(-50%, 14px);
+  }
+
+  body.nav-live .hero-text {
+    transform: translate(-50%, 0);
+  }
+
+  .hero-text .hero-tagline {
+    gap: 8px;
+    margin-bottom: 22px;
+    font-size: clamp(1.05rem, 4.3vw, 1.5rem);
+    letter-spacing: .06em;
+    white-space: normal;
+  }
+
+  .hero-text .hero-tagline .tagline-line {
+    flex: 0 1 20px;
+    min-width: 10px;
+  }
+
+  .walkins-badge {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    letter-spacing: .12em;
+  }
+}
+
 </style>
 </head>
 
@@ -914,18 +1027,19 @@ body.nav-live .hero-text {
   </div>
 
   <div class="hero-text">
-    <h1>
-      <span>Custom and Flash Tattooing</span>
-      <span>in the</span>
-      <span class="old-market">Old Market</span>
-    </h1>
 
-    <p class="hero-subline">
-      Located in Omaha's historic arts and entertainment district
-    </p>
+  <h1 class="hero-tagline">
+    <span class="tagline-line"></span>
+    <span>CUSTOM &amp; FLASH TATTOOS</span>
+    <span class="tagline-line"></span>
+  </h1>
 
-    <p class="walkins">Walk-Ins Welcome</p>
+  <div class="walkins-badge">
+    WALK-INS WELCOME
   </div>
+
+</div>
+
 </section>
 
 <!-- ========================================
