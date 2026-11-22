@@ -359,61 +359,36 @@ body.hero-bright .hero-media {
   object-position: center;
 }
 
+
 /* ========================================
-   HERO TEXT
+   HERO TEXT - VINTAGE SIGN IMAGE
 ======================================== */
+
 .hero-text {
   position: absolute;
-  left: 56px;
-  bottom: 38px;
   z-index: 20;
-  max-width: 720px;
-  color: var(--cream);
+  left: 50%;
+  right: auto;
+  bottom: 12%;
+  width: min(45vw, 600px);
+  max-width: none;
+  text-align: center;
   opacity: 0;
-  transform: translateY(14px);
+  transform: translate(-50%, 14px);
   transition: opacity .8s ease, transform .8s ease;
 }
+
 body.nav-live .hero-text {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(-50%, 0);
 }
-.hero-text h1 {
-  margin: 0 0 22px;
-  font-size: clamp(2.35rem,4.35vw,4.35rem);
-  line-height: 1.02;
-  font-weight: 300;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: rgba(242,217,107,.82);
-}
-.hero-text h1 span { display: block; }
-.hero-text .old-market {
+
+.hero-sign-image {
   display: block;
-  font-weight: 700;
-  letter-spacing: .09em;
-  color: #eecc50;
-}
-.hero-subline {
-  max-width: 520px;
-  margin: 0 0 22px;
-  font-size: clamp(.85rem,1.05vw,1rem);
-  line-height: 1.55;
-  font-weight: 300;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: rgba(242,217,107,.72);
-}
-.hero-text .walkins {
-  display: inline-block;
-  margin: 4px 0 0;
-  padding: 14px 0 0;
-  border-top: 2px solid var(--red);
-  font-family: Arial,sans-serif;
-  font-size: .98rem;
-  letter-spacing: .24em;
-  text-transform: uppercase;
-  color: var(--red);
-  text-shadow: 0 0 12px var(--red-glow);
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,.6));
 }
 
 /* ========================================
@@ -847,66 +822,6 @@ body.nav-live .hero-text {
   .site-footer a:first-child,
   .site-footer a:last-child {
     justify-self: center;
-  }
-}
-   
-
-
-/* ==========================================
-   DOUBLE DRAGON - VINTAGE HERO SIGN
-========================================== */
-
-.hero-text {
-  position: absolute;
-  z-index: 20;
-  left: 50%;
-  right: auto;
-  bottom: 15%;
-  width: min(90%, 950px);
-  max-width: none;
-  text-align: center;
-  opacity: 0;
-  transform: translate(-50%, 14px);
-  transition: opacity .8s ease, transform .8s ease;
-}
-
-/* Fade in after the logo animation */
-body.nav-live .hero-text {
-  opacity: 1;
-  transform: translate(-50%, 0);
-}
-
-/* Vintage lettering image */
-.hero-sign-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,.6));
-}
-
-/* Tablet */
-@media (max-width: 900px) {
-  .hero-text {
-    width: min(92vw, 740px);
-    bottom: 12%;
-  }
-}
-
-/* Mobile */
-@media (max-width: 640px) {
-  .hero-text {
-    left: 50%;
-    right: auto;
-    bottom: 16%;
-    width: 94vw;
-    max-width: none;
-    text-align: center;
-    transform: translate(-50%, 14px);
-  }
-
-  body.nav-live .hero-text {
-    transform: translate(-50%, 0);
   }
 }
 
