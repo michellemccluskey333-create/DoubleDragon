@@ -9,8 +9,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 
+<!-- Replace these social preview URLs when the new site is published -->
 <meta property="og:title" content="Double Dragon Tattoo">
 <meta property="og:description" content="Custom and flash tattooing in Omaha.">
 <meta property="og:type" content="website">
@@ -61,6 +63,7 @@ body.hero-live .blackout { opacity: 0; }
 
 /* ========================================
    ANIMATED DOUBLE DRAGON LOGO
+   Large center -> top -> small on scroll
 ======================================== */
 .site-logo {
   position: fixed;
@@ -79,15 +82,17 @@ body.hero-live .blackout { opacity: 0; }
     transform 1.05s var(--ease),
     opacity .25s ease;
 }
+
 body.logo-settling .site-logo {
   top: 15px;
-  width: min(32vw,380px);
-  transform: translate(-50%,0);
+  width: min(32vw, 380px);
+  transform: translate(-50%, 0);
 }
+
 body.scrolled .site-logo {
   top: 8px;
-  width: min(20vw,180px);
-  transform: translate(-50%,0);
+  width: min(20vw, 180px);
+  transform: translate(-50%, 0);
 }
 
 /* ========================================
@@ -278,10 +283,10 @@ body.menu-open .pull-menu {
 .menu-logo-small {
   position: absolute;
   left: 50%;
-  bottom: 24px;
-  width: 180px;
+  bottom: 86px;
+  width: 225px;
   transform: translateX(-50%);
-  opacity: .65;
+  opacity: .26;
   filter: drop-shadow(0 0 12px var(--red-glow));
   pointer-events: none;
 }
@@ -354,30 +359,998 @@ body.hero-bright .hero-media {
   object-position: center;
 }
 
+
 /* ========================================
    HERO TEXT - VINTAGE SIGN IMAGE
 ======================================== */
+
 .hero-text {
   position: absolute;
   z-index: 20;
   left: 50%;
   right: auto;
-  bottom: 16%;
-  width: min(45vw,600px);
+  bottom: 12%;
+  width: min(45vw, 600px);
   max-width: none;
   text-align: center;
   opacity: 0;
-  transform: translate(-50%,14px);
+  transform: translate(-50%, 14px);
   transition: opacity .8s ease, transform .8s ease;
 }
+
 body.nav-live .hero-text {
   opacity: 1;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
 }
+
 .hero-sign-image {
   display: block;
   width: 100%;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,.7));
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,.6));
 }
+
+/* ========================================
+   SHARED SECTION STYLES
+======================================== */
+.section-kicker {
+  margin: 0 0 16px;
+  color: #eecc50;
+  font-family: Arial,sans-serif;
+  font-size: .82rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.artists-section,
+.about-section,
+.instagram-section,
+.location-section {
+  border-top: 1px solid var(--line);
+}
+.artists-section h2,
+.instagram-section h2,
+.location-section h2 {
+  margin: 0 0 42px;
+  font-size: clamp(2rem,4vw,4rem);
+  font-weight: 300;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   ABOUT SECTION AND SLIDESHOW
+======================================== */
+.about-section {
+  display: grid;
+  grid-template-columns:
+    minmax(280px,.9fr) minmax(320px,1fr);
+  gap: 64px;
+  align-items: center;
+  padding: 110px 8vw;
+  background: #000;
+}
+.about-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 0 30px rgba(189,48,40,.08);
+}
+.about-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.about-slide.active { opacity: 1; }
+.about-copy h2 {
+  margin: 0 0 24px;
+  font-size: clamp(2rem,4vw,4rem);
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.about-copy p {
+  max-width: 560px;
+  margin: 0 0 18px;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(242,217,107,.72);
+}
+.about-copy .section-kicker {
+  color: #eecc50;
+  font-size: .82rem;
+}
+
+/* ========================================
+   ARTISTS CAROUSEL
+======================================== */
+.artists-section {
+  padding: 110px 8vw;
+  background: #000;
+}
+.artist-carousel {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+}
+.artist-window {
+  overflow: hidden;
+  width: 100%;
+}
+.artist-track {
+  display: flex;
+  gap: 24px;
+  transition: transform .4s var(--ease);
+}
+.artist-card {
+  flex: 0 0 calc((100% - 72px)/4);
+  text-decoration: none;
+  color: var(--cream);
+}
+.artist-card img {
+  width: 100%;
+  aspect-ratio: 1/1.15;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  filter: grayscale(.2);
+  transition: transform .25s ease,
+    filter .25s ease, border-color .25s ease;
+}
+.artist-card:hover img {
+  transform: translateY(-5px);
+  filter: grayscale(0) brightness(1.06);
+  border-color: var(--red);
+  box-shadow: 0 0 28px var(--red-glow);
+}
+.artist-card h3 {
+  margin: 14px 0 5px;
+  font-size: 1rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.artist-card:hover h3 {
+  color: #fff3bd;
+  text-shadow: 0 0 10px var(--red-glow);
+}
+.artist-card p {
+  margin: 0;
+  color: var(--muted);
+  font-family: Arial,sans-serif;
+  font-size: .72rem;
+  letter-spacing: .08em;
+}
+.artist-arrow {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--red-border);
+  background: rgba(0,0,0,.35);
+  color: var(--cream);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.artist-arrow:hover {
+  background: var(--red-soft);
+}
+
+/* ========================================
+   INSTAGRAM GALLERIES
+======================================== */
+.instagram-section {
+  padding: 100px 8vw;
+  background: #050505;
+  border-bottom: 1px solid var(--line);
+}
+.instagram-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.instagram-section h2 { margin-bottom: 20px; }
+.instagram-intro {
+  max-width: 720px;
+  margin: 0 0 56px;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(242,217,107,.72);
+}
+.instagram-group { margin-top: 54px; }
+.instagram-group:first-of-type { margin-top: 0; }
+.instagram-group-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.instagram-group-heading h3 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.instagram-group-heading a {
+  color: #eecc50;
+  font-family: Arial,sans-serif;
+  font-size: .76rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.instagram-group-heading a:hover {
+  color: var(--red);
+}
+.instagram-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+.instagram-photo-grid a,
+.instagram-photo-grid img {
+  display: block;
+  width: 100%;
+}
+.instagram-photo-grid a {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.instagram-photo-grid img {
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(.15);
+  transition: transform .25s ease, filter .25s ease;
+}
+.instagram-photo-grid a:hover img {
+  transform: scale(1.04);
+  filter: grayscale(0) brightness(1.06);
+}
+
+/* ========================================
+   LOCATION
+======================================== */
+.location-section {
+  padding: 100px 8vw;
+  background: #000;
+}
+.location-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(260px,.7fr) minmax(320px,1fr);
+  gap: 48px;
+  align-items: stretch;
+}
+.location-copy {
+  font-family: Arial,sans-serif;
+  font-size: .9rem;
+  line-height: 1.7;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(242,217,107,.75);
+}
+.location-copy a {
+  color: var(--cream);
+  text-decoration: none;
+}
+.location-copy a:hover { color: var(--red); }
+.location-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 13px 20px;
+  border: 1px solid var(--red-border);
+}
+.location-map {
+  width: 100%;
+  min-height: 320px;
+  border: 1px solid var(--line);
+  filter: grayscale(1) invert(.9) contrast(.9);
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+.site-footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 28px;
+  padding: 34px 8vw;
+  background: #000;
+  border-top: 1px solid var(--line);
+  color: rgba(242,217,107,.72);
+  font-family: Arial,sans-serif;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.site-footer p {
+  margin: 0;
+  justify-self: center;
+  text-align: center;
+}
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.site-footer a:first-child { justify-self: start; }
+.site-footer a:last-child { justify-self: end; }
+.site-footer a:hover { color: var(--red); }
+.site-footer .footer-ig-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+@media (max-width:1050px) {
+  .site-logo { width: min(78vw,620px); }
+  body.logo-settling .site-logo {
+    top: 22px;
+    width: min(62vw,460px);
+    transform: translate(-50%,0);
+  }
+  body.scrolled .site-logo {
+    top: 10px;
+    width: min(34vw,260px);
+  }
+  .hero-text { max-width: 620px; }
+  .hero-text h1 {
+    font-size: clamp(2.4rem,6.4vw,4.2rem);
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+@media (max-width:640px) {
+  .hero { min-height: 100svh; }
+
+  .site-logo { width: min(84vw,520px); }
+
+  body.logo-settling .site-logo {
+    top: 82px;
+    width: min(58vw,285px);
+    transform: translate(-50%,0);
+  }
+
+  .fixed-top-bar { display: none; }
+
+  .site-logo,
+  .menu-toggle,
+  .book-top {
+    position: absolute;
+  }
+
+  .menu-toggle {
+    top: 24px;
+    left: 18px;
+  }
+  .book-top {
+    top: 24px;
+    right: 18px;
+    padding: 10px 14px;
+    font-size: .62rem;
+    letter-spacing: .12em;
+  }
+  .pull-menu {
+    width: 86vw;
+    padding: 88px 28px 30px;
+  }
+  .menu-logo-small {
+    width: 135px;
+    bottom: 72px;
+  }
+  .hero-img {
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-media {
+    filter: brightness(.08) contrast(1.08) saturate(.45);
+  }
+  body.hero-bright .hero-media {
+    filter: brightness(.66) contrast(1.12) saturate(.45);
+  }
+  .hero-text {
+    left: 24px;
+    right: 24px;
+    bottom: clamp(96px,14svh,140px);
+    max-width: 330px;
+    text-align: left;
+  }
+  .hero-text h1 {
+    font-size: clamp(1.85rem,8vw,2.75rem);
+    line-height: 1.05;
+    letter-spacing: .055em;
+  }
+  .hero-text .old-market {
+    font-weight: 700;
+    letter-spacing: .07em;
+  }
+  .hero-subline {
+    max-width: 310px;
+    margin: 16px 0 18px;
+    font-size: .72rem;
+    line-height: 1.45;
+  }
+  .hero-text .walkins {
+    font-size: .82rem;
+    letter-spacing: .18em;
+    padding-top: 12px;
+  }
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    padding: 76px 28px;
+  }
+  .about-slideshow { aspect-ratio: 4/4.6; }
+  .about-copy h2 {
+    font-size: clamp(1.85rem,8vw,2.8rem);
+  }
+  .artist-carousel { grid-template-columns: 1fr; }
+  .artist-arrow { display: none; }
+  .artist-window { overflow-x: auto; }
+  .artist-track { gap: 16px; }
+  .artist-card { flex: 0 0 72%; }
+  .artists-section { padding: 76px 28px; }
+  .instagram-section { padding: 76px 28px; }
+  .instagram-intro { margin-bottom: 42px; }
+  .instagram-group { margin-top: 46px; }
+  .instagram-group-heading { display: block; }
+  .instagram-group-heading h3 { margin-bottom: 10px; }
+  .instagram-photo-grid { gap: 8px; }
+  .location-section { padding: 76px 28px; }
+  .location-grid { grid-template-columns: 1fr; }
+  .location-map { min-height: 280px; }
+  .site-footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .site-footer a:first-child,
+  .site-footer a:last-child {
+    justify-self: center;
+  }
+}
+
+</style>
+</head>
+
+<body class="intro-running">
+
+<div class="fixed-top-bar" aria-hidden="true"></div>
+<div class="blackout" aria-hidden="true"></div>
+
+<!-- ========================================
+     ANIMATED DOUBLE DRAGON LOGO
+======================================== -->
+<img
+  src="Images/Double Dragon Tattoo Logo.png"
+  alt="Double Dragon Tattoo"
+  class="site-logo"
+>
+
+<!-- Navigation controls -->
+<button class="menu-toggle" type="button"
+  aria-label="Open menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<a href="#book" class="book-top">Book Now</a>
+
+<div class="menu-backdrop" aria-hidden="true"></div>
+
+<nav class="pull-menu" aria-label="Main navigation">
+  <div class="menu-content">
+    <div>
+      <div class="pull-menu-links">
+        <a href="#about">About</a>
+        <a href="#tattooers">Tattooers</a>
+        <a href="#instagram">Instagram</a>
+        <a href="#location">Location</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#book" class="menu-book-btn">Book Now</a>
+      </div>
+
+      <p class="no-piercer-note">NO PIERCING SERVICES</p>
+
+      <img
+        src="Images/emblem.png"
+        alt="Double Dragon emblem"
+        class="menu-logo-small"
+      >
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ========================================
+     HERO
+======================================== -->
+<section class="hero">
+
+  <!-- Background tattoo photograph -->
+  <div class="hero-media" aria-hidden="true">
+    <img
+      src="Images/hero-image.jpeg"
+      alt=""
+      class="hero-img"
+    >
+  </div>
+
+  <!-- Vintage tattoo lettering -->
+  <div class="hero-text">
+    <img
+      src="Images/Vintage tattoo studio sign lettering.png"
+      alt="Custom and flash tattooing. Walk-ins welcome."
+      class="hero-sign-image"
+    >
+  </div>
+
+</section>
+
+
+<!-- ========================================
+     ABOUT SHOP AND SLIDESHOW
+======================================== -->
+<section class="about-section" id="about">
+
+  <div class="about-slideshow">
+    <img src="Images/exterior.jpeg"
+      alt="Double Dragon Tattoo exterior"
+      class="about-slide active">
+
+    <img src="Images/interior_1.png"
+      alt="Double Dragon Tattoo interior"
+      class="about-slide">
+
+    <img src="Images/interior_2.png"
+      alt="Double Dragon Tattoo shop interior"
+      class="about-slide">
+
+    <img src="Images/interior_3.png"
+      alt="Double Dragon Tattoo studio space"
+      class="about-slide">
+
+    <img src="Images/bees.jpeg"
+      alt="Bee tattoo flash artwork"
+      class="about-slide">
+
+    <img src="Images/interior_4.png"
+      alt="Double Dragon Tattoo interior details"
+      class="about-slide">
+
+    <img src="Images/interior_5.png"
+      alt="Double Dragon Tattoo interior details"
+      class="about-slide">
+  </div>
+
+  <div class="about-copy">
+    <p class="section-kicker">About the shop</p>
+    <h2>Double Dragon Tattoo</h2>
+
+    <p>
+      Established in 2013, Double Dragon Tattoo is
+      located in Omaha's historic Old Market,
+      surrounded by the city's arts, culture,
+      and entertainment district.
+    </p>
+
+    <p>
+      The shop offers custom tattooing and flash
+      work in a focused, artist-driven space.
+    </p>
+  </div>
+</section>
+
+<!-- ========================================
+     ARTISTS CAROUSEL
+======================================== -->
+<section class="artists-section" id="tattooers">
+
+  <p class="section-kicker">Tattooers</p>
+  <h2>Meet the Artists</h2>
+
+  <div class="artist-carousel">
+
+    <button class="artist-arrow artist-prev"
+      type="button" aria-label="Previous artists">
+      &#8249;
+    </button>
+
+    <div class="artist-window">
+      <div class="artist-track">
+
+        <a href="jeremy.html" class="artist-card">
+          <img src="Images/artists/jeremy.png"
+            alt="Jeremy">
+          <h3>Jeremy</h3>
+        </a>
+
+        <a href="tobias.html" class="artist-card">
+          <img src="Images/artists/tobias.png"
+            alt="Tobias Caballero">
+          <h3>Tobias</h3>
+        </a>
+
+        <a href="kaitlin.html" class="artist-card">
+          <img src="Images/artists/kaitlin-profile.png"
+            alt="Kaitlin">
+          <h3>Kaitlin</h3>
+        </a>
+
+        <a href="austin.html" class="artist-card">
+          <img src="Images/artists/austin-profile.png"
+            alt="Austin L'Ecuyer">
+          <h3>Austin</h3>
+        </a>
+
+        <a href="asa.html" class="artist-card">
+          <img src="Images/artists/asa.png"
+            alt="Asa Larson">
+          <h3>Asa</h3>
+        </a>
+
+        <a href="alex.html" class="artist-card">
+          <img src="Images/artists/alex-profile.png"
+            alt="Alex Downing">
+          <h3>Alex</h3>
+        </a>
+
+        <a href="felipe.html" class="artist-card">
+          <img src="Images/artists/felipe-profile.png"
+            alt="Felipe Morales">
+          <h3>Felipe</h3>
+        </a>
+
+        <a href="guest.html" class="artist-card">
+          <img src="Images/artists/guest.jpeg"
+            alt="Guest Artist">
+          <h3>Guest Artist</h3>
+        </a>
+
+      </div>
+    </div>
+
+    <button class="artist-arrow artist-next"
+      type="button" aria-label="Next artists">
+      &#8250;
+    </button>
+
+  </div>
+</section>
+
+<!-- ========================================
+     INSTAGRAM SECTION
+     Old Instagram links retained pending update
+======================================== -->
+<section class="instagram-section"
+  id="instagram" aria-labelledby="instagram-title">
+
+  <div class="instagram-inner">
+    <p class="section-kicker">Instagram</p>
+    <h2 id="instagram-title">Follow the Work</h2>
+
+    <p class="instagram-intro">
+      Follow us on Instagram for current work,
+      shop updates, available flash, and announcements.
+    </p>
+
+    <div class="instagram-group">
+      <div class="instagram-group-heading">
+        <h3>The Shop</h3>
+        <a href="https://www.instagram.com/tenthsanctum/"
+          target="_blank" rel="noopener noreferrer">
+          @tenthsanctum
+        </a>
+      </div>
+
+      <div class="instagram-photo-grid">
+
+        <a href="https://www.instagram.com/p/B81bKwwBFLT/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/shop-1.png"
+            alt="Tattoo work from Double Dragon">
+        </a>
+
+        <a href="https://www.instagram.com/p/CKR4MX9hCQ1/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/shop-6.png"
+            alt="Double Dragon shop interior">
+        </a>
+
+        <a href="https://www.instagram.com/p/DV1tCX9EfGU/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/shop-2.png"
+            alt="Double Dragon shop interior">
+        </a>
+
+        <a href="https://www.instagram.com/reel/C9a0ZvPPRSe/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/shop-5.png"
+            alt="Double Dragon shop interior">
+        </a>
+
+        <a href="https://www.instagram.com/reel/DMaenHtR1hr/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/shop-3.png"
+            alt="Tattoo work from Double Dragon">
+        </a>
+
+        <a href="https://www.instagram.com/p/B8Z9U7Uh-sy/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/shop-4.png"
+            alt="Double Dragon shop interior">
+        </a>
+
+      </div>
+    </div>
+
+    <div class="instagram-group">
+      <div class="instagram-group-heading">
+        <h3>Flash Gallery</h3>
+        <a href="https://www.instagram.com/tenthsanctum_flashdays/"
+          target="_blank" rel="noopener noreferrer">
+          @tenthsanctum_flashdays
+        </a>
+      </div>
+
+      <div class="instagram-photo-grid">
+
+        <a href="https://www.instagram.com/p/DOhespsjQHI/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/flash-1.png"
+            alt="Available flash tattoo design">
+        </a>
+
+        <a href="https://www.instagram.com/p/DO4JECQgbf2/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/flash-2.png"
+            alt="Flash tattoo artwork">
+        </a>
+
+        <a href="https://www.instagram.com/p/DNda3gENIxX/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/flash-3.png"
+            alt="Double Dragon flash day tattoo designs">
+        </a>
+
+        <a href="https://www.instagram.com/p/DJ7th1qtigs/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/flash-4.png"
+            alt="Available flash tattoo design">
+        </a>
+
+        <a href="https://www.instagram.com/p/DI5NKettZQl/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/flash-5.png"
+            alt="Flash tattoo artwork">
+        </a>
+
+        <a href="https://www.instagram.com/reel/DAlh6p5vbgr/"
+          target="_blank" rel="noopener noreferrer">
+          <img src="Images/instagram/flash-6.png"
+            alt="Double Dragon flash day tattoo designs">
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================================
+     LOCATION
+======================================== -->
+<section class="location-section" id="location">
+
+  <p class="section-kicker">Visit the shop</p>
+  <h2>Location</h2>
+
+  <div class="location-grid">
+
+    <div class="location-copy">
+      <p><strong>Double Dragon Tattoo</strong></p>
+      <p>1010 S 10th St<br>Omaha, NE 68108</p>
+
+      <p>
+        <a href="tel:+14024221010">
+          (402) 422-1010
+        </a>
+      </p>
+
+      <p class="hours">
+        Open daily<br>
+        12 PM - 8 PM
+      </p>
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=1010+S+10th+St+Omaha+NE+68108"
+        target="_blank"
+        rel="noopener"
+        class="location-button">
+        Open in Google Maps
+      </a>
+    </div>
+
+    <iframe
+      class="location-map"
+      src="https://www.google.com/maps?q=1010%20S%2010th%20St%20Omaha%20NE%2068108&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Map to Double Dragon Tattoo">
+    </iframe>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ========================================
+     JAVASCRIPT
+======================================== -->
+<script>
+
+/* INTRO ANIMATION */
+document.addEventListener("DOMContentLoaded", () => {
+
+  if (!window.location.hash) {
+    window.scrollTo(0,0);
+  }
+
+  if (window.location.hash) {
+    document.body.classList.add(
+      "logo-settling",
+      "hero-live",
+      "hero-bright",
+      "nav-live"
+    );
+    document.body.classList.remove("intro-running");
+
+    const blackout = document.querySelector(".blackout");
+    if (blackout) blackout.remove();
+
+    setTimeout(() => {
+      document.querySelector(
+        window.location.hash
+      )?.scrollIntoView();
+    },50);
+
+    return;
+  }
+
+  setTimeout(() => {
+    document.body.classList.add("logo-settling");
+  },650);
+
+  setTimeout(() => {
+    document.body.classList.add("hero-live");
+  },1650);
+
+  setTimeout(() => {
+    document.body.classList.add("hero-bright");
+  },2050);
+
+  setTimeout(() => {
+    document.body.classList.add("nav-live");
+    document.body.classList.remove("intro-running");
+  },2600);
+
+  setTimeout(() => {
+    const blackout = document.querySelector(".blackout");
+    if (blackout) blackout.remove();
+  },3100);
+
+});
+
+/* SCROLL LOGO SHRINK */
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 80) {
+    document.body.classList.add("scrolled");
+  } else {
+    document.body.classList.remove("scrolled");
+  }
+});
+
+/* NAVIGATION MENU */
+const menuToggle = document.querySelector(".menu-toggle");
+const menuBackdrop = document.querySelector(".menu-backdrop");
+const menuLinks = document.querySelectorAll(".pull-menu a");
+
+function closeMenu() {
+  document.body.classList.remove("menu-open");
+  menuToggle.setAttribute("aria-expanded","false");
+}
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = document.body.classList.toggle("menu-open");
+  menuToggle.setAttribute(
+    "aria-expanded",
+    isOpen ? "true" : "false"
+  );
+});
+
+menuBackdrop.addEventListener("click",closeMenu);
+menuLinks.forEach(link => {
+  link.addEventListener("click",closeMenu);
+});
+
+/* ABOUT SLIDESHOW */
+const aboutSlides = document.querySelectorAll(".about-slide");
+let aboutSlideIndex = 0;
+
+if (aboutSlides.length > 1) {
+  setInterval(() => {
+    aboutSlides[aboutSlideIndex].classList.remove("active");
+
+    aboutSlideIndex =
+      (aboutSlideIndex + 1) % aboutSlides.length;
+
+    aboutSlides[aboutSlideIndex].classList.add("active");
+  },3000);
+}
+
+/* ARTISTS CAROUSEL */
+const artistTrack = document.querySelector(".artist-track");
+const artistNext = document.querySelector(".artist-next");
+const artistPrev = document.querySelector(".artist-prev");
+const artistCards = document.querySelectorAll(
+  ".artist-track .artist-card"
+);
+
+let artistIndex = 0;
+const artistsPerView = 4;
+
+function updateArtistCarousel() {
+  if (!artistCards.length) return;
+
+  const cardWidth = artistCards[0].offsetWidth + 24;
+
+  artistTrack.style.transform =
+    `translateX(-${artistIndex * cardWidth}px)`;
+}
+
+artistNext.addEventListener("click", () => {
+  artistIndex += artistsPerView;
+
+  if (artistIndex >= artistCards.length) {
+    artistIndex = 0;
+  }
+
+  updateArtistCarousel();
+});
+
+artistPrev.addEventListener("click", () => {
+  artistIndex -= artistsPerView;
+
+  if (artistIndex < 0) {
+    artistIndex = Math.max(
+      artistCards.length - artistsPerView,0
+    );
+  }
+
+  updateArtistCarousel();
+});
+
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+</script>
+</body>
+</html>
