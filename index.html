@@ -632,8 +632,8 @@ body.nav-live .hero-text {
   transition: transform .25s ease, filter .25s ease;
 }
 .instagram-photo-grid a:hover img {
-  transform: scale(1.04);
-  filter: grayscale(0) brightness(1.06);
+  transform: none;
+  filter: brightness(1.06);
 }
 
 
@@ -919,7 +919,8 @@ body.logo-settling:not(.scrolled) .site-logo {
 /* Matching section titles */
 .about-copy h2,
 .artists-section h2,
-.instagram-section h2 {
+.instagram-section h2,
+   .location-section h2 {
   color: #df332b;
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 700;
@@ -932,7 +933,34 @@ body.logo-settling:not(.scrolled) .site-logo {
 .about-copy p:last-child {
   font-weight: 700;
 }
+/* Instagram portfolio - full photographs */
 
+.instagram-photo-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.instagram-photo-grid a {
+  aspect-ratio: 4 / 5;
+  background: #000;
+  overflow: hidden;
+}
+
+.instagram-photo-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
+}
+
+/* Instagram portfolio - mobile */
+
+@media (max-width: 640px) {
+  .instagram-photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
 </style>
 </head>
 
@@ -1192,11 +1220,9 @@ body.logo-settling:not(.scrolled) .site-logo {
 
       <div class="instagram-photo-grid">
 
-
-
         <a href="https://www.instagram.com/doubledragontattooomaha/"
           target="_blank" rel="noopener noreferrer">
-          <img src="Images/instagram/heath_mary.png"
+          <img src="Images/instagram/heath_mary.jpeg"
             alt="Double Dragon shop interior">
         </a>
 
@@ -1206,24 +1232,21 @@ body.logo-settling:not(.scrolled) .site-logo {
             alt="Double Dragon shop interior">
         </a>
 
-
         <a href="https://www.instagram.com/doubledragontattooomaha/"
           target="_blank" rel="noopener noreferrer">
-          <img src="Images/instagram/scott_bear.png"
+          <img src="Images/instagram/scott_bear.jpeg"
             alt="Double Dragon shop interior">
         </a>
 
-
         <a href="https://www.instagram.com/doubledragontattooomaha/"
           target="_blank" rel="noopener noreferrer">
-          <img src="Images/instagram/eric_sheep.png"
+          <img src="Images/instagram/eric_sheep.jpeg"
             alt="Double Dragon shop interior">
         </a>
 
-
         <a href="https://www.instagram.com/doubledragontattooomaha/"
           target="_blank" rel="noopener noreferrer">
-          <img src="Images/instagram/eric_mask.png"
+          <img src="Images/instagram/eric_mask.jpeg"
             alt="Tattoo work from Double Dragon">
         </a>
 
@@ -1243,9 +1266,9 @@ body.logo-settling:not(.scrolled) .site-logo {
             alt="Tattoo work from Double Dragon">
         </a>
 
-                         <a href="https://www.instagram.com/doubledragontattooomaha/"
+            <a href="https://www.instagram.com/doubledragontattooomaha/"
           target="_blank" rel="noopener noreferrer">
-          <img src="Images/instagram/mary.jpeg"
+          <img src="Images/instagram/bear.jpeg"
             alt="Tattoo work from Double Dragon">
         </a>
 
