@@ -227,3 +227,125 @@ a {
   }
 }
 }
+/* ========================================
+   DOUBLE DRAGON ARTIST PAGE BRANDING
+======================================== */
+
+:root {
+  --bg: #000000;
+  --cream: #f2d96b;
+  --muted: #d1b85b;
+  --red: #bd3028;
+  --red-soft: rgba(189,48,40,.16);
+  --red-border: rgba(238,204,80,.72);
+  --red-glow: rgba(189,48,40,.35);
+  --line: rgba(238,204,80,.22);
+}
+
+/* Page background and default font */
+
+body {
+  background: #000000;
+  color: var(--cream);
+  font-family: "Raleway", Arial, sans-serif;
+}
+
+/* Artist name and section headings */
+
+.artist-profile-copy h1,
+.artist-contact h2,
+.artist-gallery-section h2 {
+  color: #df332b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: .03em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+/* Artist name */
+
+.artist-profile-copy h1 {
+  font-size: clamp(2rem, 4vw, 3.8rem);
+}
+
+/* Booking heading */
+
+.artist-contact h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2.4rem);
+}
+
+/* Portfolio heading */
+
+.artist-gallery-section h2 {
+  font-size: clamp(2rem, 4vw, 3.8rem);
+}
+
+/* Small section labels */
+
+.section-kicker,
+.artist-style {
+  color: #eecc50;
+  font-family: Arial, sans-serif;
+  font-size: .82rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+/* Artist biography */
+
+.artist-bio {
+  color: rgba(242,217,107,.72);
+  font-family: "Raleway", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* Header and navigation */
+
+.artist-header {
+  background: #000000;
+  border-bottom: 1px solid var(--line);
+}
+
+.artist-page-nav a {
+  color: var(--cream);
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+}
+
+.artist-page-nav a:hover {
+  color: #df332b;
+}
+
+/* Booking and contact buttons */
+
+.artist-button,
+.artist-button.secondary {
+  color: var(--cream);
+  background: transparent;
+  border: 1px solid var(--red-border);
+  font-family: Arial, sans-serif;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.artist-button:hover,
+.artist-button.secondary:hover {
+  color: #fff3bd;
+  background: var(--red-soft);
+  border-color: var(--red);
+  box-shadow: 0 0 24px var(--red-glow);
+}
+
+/* Photograph and gallery borders */
+
+.artist-profile-photo,
+.artist-gallery img {
+  border: 1px solid var(--line);
+}
+
+.artist-gallery-section {
+  border-top: 1px solid var(--line);
+}
