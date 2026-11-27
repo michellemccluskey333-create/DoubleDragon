@@ -849,7 +849,73 @@ body.nav-live .hero-text {
     justify-self: center;
   }
 }
+/* ========================================
+   SIMPLIFIED HERO DESIGN
+======================================== */
 
+/* Larger main logo after opening animation */
+body.logo-settling:not(.scrolled) .site-logo {
+  top: 8%;
+  width: min(48vw,580px);
+  transform: translate(-50%,0);
+}
+
+/* Walk-in message positioning */
+.hero-text {
+  bottom: 24%;
+  width: 90%;
+  max-width: none;
+  text-align: center;
+}
+
+/* Walk-in message styling */
+.walk-in-label {
+  display: inline-block;
+  padding: 12px 30px;
+  border: 1px solid var(--red);
+  border-radius: 2px;
+  background: rgba(0,0,0,.65);
+  color: var(--cream);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px var(--red-glow);
+}
+
+/* Tablet */
+@media (max-width:1050px) {
+  body.logo-settling:not(.scrolled) .site-logo {
+    top: 10%;
+    width: min(65vw,520px);
+  }
+}
+
+/* Mobile */
+@media (max-width:640px) {
+  body.logo-settling .site-logo {
+    top: 16%;
+    width: min(84vw,420px);
+    transform: translate(-50%,0);
+  }
+
+  body.scrolled .site-logo {
+    top: 16%;
+    width: min(84vw,420px);
+  }
+
+  .hero-text {
+    bottom: 25%;
+    width: 90%;
+  }
+
+  .walk-in-label {
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    letter-spacing: .18em;
+  }
+}
 
 </style>
 </head>
@@ -940,13 +1006,10 @@ body.nav-live .hero-text {
 
 
   <!-- Vintage tattoo lettering -->
-  <div class="hero-text">
-    <img
-      src="Images/Vintage tattoo studio sign lettering.png"
-      alt="Custom and flash tattooing. Walk-ins welcome."
-      class="hero-sign-image"
-    >
-  </div>
+<!-- Hero walk-in message -->
+<div class="hero-text">
+  <span class="walk-in-label">Walk-ins Welcome</span>
+</div>
 
 
 </section>
@@ -961,9 +1024,9 @@ body.nav-live .hero-text {
   <div class="about-slideshow">
 
 
-    <img src="Images/EricStation.jpeg"
-      alt="Double Dragon Tattoo interior"
-      class="about-slide">
+<img src="Images/EricStation.jpeg"
+  alt="Double Dragon Tattoo interior"
+  class="about-slide active">
 
 
     <img src="Images/shopView.jpeg"
